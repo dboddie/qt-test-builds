@@ -1,0 +1,13 @@
+name: test-builds
+run-name: Build Qt
+on: [push, workflow_dispatch]
+jobs:
+  clone-and-build-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repository
+        run: git clone https://code.qt.io/qt/qt5.git qt
+      - name: Build
+        run: |
+          cd $GITHUB_WORKSPACE/qt
+          git submodule update --init --recursive
