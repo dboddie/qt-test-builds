@@ -5,6 +5,9 @@ jobs:
   clone-and-build-repo:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch dependencies
+        run: |
+          sudo apt-get install clang-19 ninja-build cmake
       - name: Clone the repository
         run: |
           git clone https://code.qt.io/qt/qt5.git qt6
