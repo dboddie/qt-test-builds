@@ -7,14 +7,14 @@ jobs:
     steps:
       - name: Fetch dependencies
         run: |
-          sudo apt-get install clang-19 ninja-build cmake
+          sudo apt-get install clang-19 ninja-build cmake libclang1-19
       - name: Clone the repository
         run: |
-          git clone https://code.qt.io/qt/qt5.git qt6
-          cd qt6
-          git submodule update --init --recursive
+          #git clone https://code.qt.io/qt/qt5.git qt6
+          #cd qt6
+          #git submodule update --init --recursive
       - name: Build
         run: |
-          mkdir $GITHUB_WORKSPACE/qt6-build
-          cd $GITHUB_WORKSPACE/qt6-build
-          $GITHUB_WORKSPACE/qt6/configure -developer-build -submodules qtbase,qttools -no-opengl
+          #mkdir $GITHUB_WORKSPACE/qt6-build
+          #cd $GITHUB_WORKSPACE/qt6-build
+          #$GITHUB_WORKSPACE/qt6/configure -developer-build -submodules qtbase,qttools -no-opengl
