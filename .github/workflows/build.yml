@@ -17,4 +17,4 @@ jobs:
         run: |
           mkdir $GITHUB_WORKSPACE/qt6-build
           cd $GITHUB_WORKSPACE/qt6-build
-          $GITHUB_WORKSPACE/qt6/configure -developer-build -submodules qtbase,qttools
+          $GITHUB_WORKSPACE/qt6/configure -developer-build -submodules qtbase,qttools -no-opengl
