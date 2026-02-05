@@ -20,3 +20,4 @@ jobs:
           cd $GITHUB_WORKSPACE/qt6-build
           $GITHUB_WORKSPACE/qt6/configure -developer-build -submodules qtbase,qttools -no-opengl
           ninja qdoc
+          ninja generate_docs
