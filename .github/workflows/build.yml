@@ -1,10 +1,17 @@
 name: test-builds
-run-name: Build Qt
+run-name: Build Qt Documentation
 on: [push, workflow_dispatch]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   clone-and-build-repo:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Fetch dependencies
         run: |
           #apt-cache search libclang
@@ -21,3 +28,20 @@ jobs:
           $GITHUB_WORKSPACE/qt6/configure -developer-build -submodules qtbase,qttools -no-opengl
           ninja qdoc
           ninja generate_docs
+      - name: Upload GitHub Pages artifacts
+        uses: actions/upload-pages-artifact@v0
+        with:
+          path: doc
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
