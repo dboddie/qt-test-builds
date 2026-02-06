@@ -28,6 +28,7 @@ jobs:
           $GITHUB_WORKSPACE/qt6/configure -developer-build -submodules qtbase,qttools -no-opengl
           ninja qdoc
           ninja generate_docs
+          ls
       - name: Upload GitHub Pages artifacts
         uses: actions/upload-pages-artifact@v0
         with:
