@@ -32,9 +32,10 @@ jobs:
           echo '<h1>Test</h1>' > doc/test.html
           ls
       - name: Upload GitHub Pages artifacts
+        id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: doc
+          path: doc/
 
   publish:
     needs: build
@@ -46,5 +47,5 @@ jobs:
     steps:
       - name: Deploy GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
 
