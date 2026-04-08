@@ -30,7 +30,7 @@ jobs:
           ninja generate_docs
           ls
       - name: Upload GitHub Pages artifacts
-        uses: actions/upload-pages-artifact@v0
+        uses: actions/upload-pages-artifact@v3
         with:
           path: doc
 
