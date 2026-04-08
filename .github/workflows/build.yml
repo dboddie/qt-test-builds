@@ -35,7 +35,7 @@ jobs:
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: doc/
+          path: qt6-build/doc
 
   publish:
     needs: build
