@@ -27,6 +27,8 @@ jobs:
           cd $GITHUB_WORKSPACE/qt6-build
           $GITHUB_WORKSPACE/qt6/configure -developer-build -opensource -submodules qtbase,qttools -no-opengl -prefix /tmp -- -DQT_BUILD_TESTS=ON -DQT_BUILD_TESTS_BY_DEFAULT=OFF
           ninja qdoc
+          echo 'HTML.nosubdirs = "true"' >> qtbase/doc/global/qt-module-defaults-online.qdocconf
+          echo 'HTML.outputsubdir = "../html"' >> qtbase/doc/global/qt-module-defaults-online.qdocconf
           ninja generate_docs
           ls
       - name: Upload GitHub Pages artifacts
