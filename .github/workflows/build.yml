@@ -20,7 +20,8 @@ jobs:
         run: |
           git clone https://code.qt.io/qt/qt5.git qt6
           cd qt6
-          git submodule update --init --recursive
+          git -c submodule."qtwebengine".update=none submodule update --init --recursive
+          git submodule update --init qtwebengine
           echo 'HTML.nosubdirs = "true"' >> qtbase/doc/global/qt-module-defaults-online.qdocconf
           echo 'HTML.outputsubdir = "../html"' >> qtbase/doc/global/qt-module-defaults-online.qdocconf
       - name: Build
