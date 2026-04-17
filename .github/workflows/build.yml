@@ -31,7 +31,7 @@ jobs:
           $GITHUB_WORKSPACE/qt6/configure -developer-build -opensource -submodules qtbase,qttools -no-opengl -prefix /tmp -- -DQT_BUILD_TESTS=ON -DQT_BUILD_TESTS_BY_DEFAULT=OFF
           ninja qdoc
           ninja html_docs
-          ls
+          ls doc
       - name: Upload GitHub Pages artifacts
         id: deployment
         uses: actions/upload-pages-artifact@v3
